@@ -34,4 +34,8 @@ describe("SimpleNote", function() {
       expect($(".note-item")).toHaveAttr('note-id', 1);
     });
   });
+
+  // Highlights the selected note
+  
+  // Loads the note when clicked in the list
 });
