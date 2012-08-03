@@ -1,98 +1,48 @@
-/*------------------------------------+
- | Part: Reset browser default styles |
- +------------------------------------*/
-a,
-abbr,
-acronym,
-address,
-applet,
-big,
-blockquote,
-body,
-caption,
-cite,
-code,
-dd,
-del,
-dfn,
-div,
-dl,
-dt,
-em,
-fieldset,
-font,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-html,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-object,
-ol,
-p,
-pre,
-q,
-s,
-samp,
-small,
-span,
-strike,
-strong,
-sub,
-sup,
-table,
-tbody,
-td tfoot,
-th,
-thead,
-tr,
-tt,
-ul,
-var {
-  border: 0;
-  font-family: inherit;
-  font-size: 100%;
-  font-style: inherit;
-  font-weight: inherit;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  vertical-align: baseline;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-:focus {
-  outline: 0;
-}
-blockquote, q {
-  quotes: "" "";
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 body {
-  background: #fff;
-  line-height: 1;
-  color: #000;
-}
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
+	line-height: 1;
 }
 ol, ul {
-  list-style: none;
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 table {
-  border-collapse: separate;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }

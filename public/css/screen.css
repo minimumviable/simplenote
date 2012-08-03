@@ -16,12 +16,33 @@
   width: 800px;
 }
 
+#editor {
+  margin-top: 10px;
+}
+
+#note-control {
+  width: 150px;
+  min-height: 200px;
+  float: left;
+  margin-right: 20px;
+}
+
+#saved-notes .note-item {
+  padding: 10px 0px 10px 5px;
+  margin-bottom: 10px;
+  background: #EEE;
+  box-shadow: 0px 2px 4px 2px #333;
+}
+
 #note-header input{
-  width: 80%;
-  margin: 10px 0px 10px 0px;
+  width: 450px;
+  margin-bottom: 5px;
 }
 
 #note-body textarea {
-  width:100%
+  width: 600px;
 }
 
+#templates {
+  display: none;
+}

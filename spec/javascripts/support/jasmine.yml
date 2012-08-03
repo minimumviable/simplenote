@@ -61,6 +61,8 @@ spec_files:
 #
 src_dir:
 
+#runner_output: "runner.html"
+
 # spec_dir
 #
 # Spec directory path. Your spec_files must be returned relative to this path.
