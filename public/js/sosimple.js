@@ -1,4 +1,6 @@
 (function() {
+  var clean = {};
+
   function storedKeys() {
     return ["notes", "note-1", "note-2", "note-3", "note-4"];
   }
@@ -6,14 +8,15 @@
   function sync() {
     // FIXME Need to be smarter about what properies are synced
     var payload = {};
-    storedKeys().forEach(function(k, v) {
-      payload[k] = localStorage[k];
-    });
+    for(k in localStorage) {
+      if(! clean[k]) {
+        payload[k] = localStorage[k];
+      }
+    };
     var request = new XMLHttpRequest();
 
     var host = localStorage.sosimplehost || 'cloud.sosimplestorage.com:8080'
     request.open('POST', 'http://' + host + '/store/sync');
-
     request.setRequestHeader("Content-Type", "text/plain");
     request.withCredentials = "true";
     
@@ -21,8 +24,13 @@
     // request.onerror = function() {
     //   console.log("error syncing");
     // }
-    request.onload = function () {
-      console.log(JSON.parse(request.response));
+    request.onload = function (e) {
+      var newData = JSON.parse(e.target.response);
+      for (k in payload) { clean[k] = payload[k]; }
+      for (k in newData) { 
+        clean[k] = newData[k]; 
+        localStorage[k] = newData[k];
+      }
     };
     request.send(JSON.stringify(payload)); 
   }

@@ -23,6 +23,29 @@ describe('So Simple Storage', function() {
     expect(items).toEqual(["item"]);
   });
 
+  describe('when syncing items', function() {
+    var send;
+    beforeEach(function() {
+      send = spyOn(XMLHttpRequest.prototype, 'send');
+      send.andCallFake(function(sentMsg) {
+        this.onload({target: {response: sentMsg}});
+      });
+    });
+    
+    it('only syncs changed items', function() {
+      localStorage.foo = "bar"
+      localStorage.ss.sync();
+      var expectedObj = {foo: "bar"};
+      expect(send).toHaveBeenCalledWith(JSON.stringify(expectedObj));
+
+      localStorage.baz = "biz";
+      localStorage.ss.sync();
+      expectedObj = {baz: "biz"};
+      expect(send).toHaveBeenCalledWith(JSON.stringify(expectedObj));
+    });
+
+  });
+
   // Submits dirty fields for syncronization
   // Updates fields returned in the response
   // Invokes the callback to resolve conflicts
