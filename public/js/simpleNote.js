@@ -1,7 +1,7 @@
 "use strict";
 
 function getNotes() {
-  return localStorage.getObj("notes") || [];
+  return localStorage.ss.getObj("notes") || [];
 }
 
 function nextId() {
@@ -19,13 +19,13 @@ function addNote(noteId, title, body) {
 
   // We store each note as a seperate key so that So Simple
   // can synchronize them independently.
-  localStorage.setObj("note-" + noteId, note);
+  localStorage.ss.setObj("note-" + noteId, note);
 
-  localStorage.setObj("notes", function(notes) { return (notes || []).concat(nextId()); });
+  localStorage.ss.setObj("notes", function(notes) { return (notes || []).concat(nextId()); });
 }
 
 function appendNote(noteId) {
-  var note = localStorage.getObj("note-" + noteId)
+  var note = localStorage.ss.getObj("note-" + noteId)
   var newItem = $("#templates .note-item").clone();
   newItem.text(note.title);
   newItem.attr("note-id", noteId);
