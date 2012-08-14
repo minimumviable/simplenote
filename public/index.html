@@ -5,8 +5,8 @@
     <script type="text/javascript" charset="utf-8">
       "use strict";
     </script>
+    <script type="text/javascript" charset="utf-8" src="http://api.minimumviable.com/js/mviable.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/js/sosimple.js"></script>
     <script type="text/javascript" charset="utf-8" src="/js/simpleNote.js"></script>
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" charset="utf-8">
@@ -15,10 +15,14 @@
     
   </head>
   <body>
+    <!-- https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache?redirectlocale=en-US&redirectslug=Offline_resources_in_Firefox -->
     <div id="header">
       <h1>SimpleNote</h1>
     </div>
     <div id="editor">
+      <div id="login-bar">
+        <p>To save your notes, connect with <img src="images/googleplus.png" onclick="mviable.login('google')"/></p>
+      </div>
       <div id="note-control">
         <button type="button" tabindex="4" name="new-note">New Note</button>
         <ul id="saved-notes">

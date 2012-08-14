@@ -4,6 +4,10 @@ describe("SimpleNote", function() {
     init();
   });
 
+  it('shows the login bar if the user is not logged in', function() {
+    expect().toEqual();
+  });
+
   it('displays all the saved notes', function() {
     addNote(1, "my note", "Hey, I'm a note!");
 
@@ -23,11 +27,11 @@ describe("SimpleNote", function() {
 
     it('writes to local storage', function() {
       expect(localStorage.length).toEqual(2);
-      expect(localStorage.ss.getObj("note-1")).toEqual({
+      expect(sosimple.getObj("note-1")).toEqual({
         title: "My Note",
         body: "my note contents"
       });
-      expect(localStorage.ss.getObj("notes")).toEqual([1]);
+      expect(sosimple.getObj("notes")).toEqual([1]);
     });
 
     it('adds the note to the view', function() {

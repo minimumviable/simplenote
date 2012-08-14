@@ -61,7 +61,7 @@ spec_files:
 #
 src_dir:
 
-#runner_output: "runner.html"
+runner_output: "runner.html"
 
 # spec_dir
 #
