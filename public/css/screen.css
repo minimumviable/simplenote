@@ -19,7 +19,18 @@ button {
 }
 
 #login-bar {
+  font-style: italic;
   text-align: center;
+  font-size: 32px;
+  margin-bottom: 10px;
+  padding: 3px;
+  display: none;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 2px 4px 2px #335;
+}
+
+#login-bar img {
+  vertical-align: middle;
 }
 
 #editor {

@@ -46,13 +46,16 @@ function loadNotes() {
   });
 }
 
+function requireLogin() {
+  $("#login-bar").show();
+}
+
 function init() {
   $("#note-header button").click(newNote);
-  mviable.sync({
-    loginRequired: function(arg) {
-      // Show Login here
-    }
+  mviable.events({
+    loginRequired: requireLogin
   });
+  mviable.sync(requireLogin);
   loadNotes();
 }
 
