@@ -46,8 +46,15 @@ function loadNotes() {
   });
 }
 
+// Called when we need to prompt the user to log in
 function requireLogin() {
   $("#login-bar").show();
+}
+
+// Called when the application is run for the first time on a device
+function addDefaultNote() {
+  addNote(nextId(), "What is SimpleNote?", 
+    "SimpleNote is an example of the kind of HTML5 app you can build with MinimumViable\n\nIt was built using: MinimumViable, JQuery, Underscore.js and HTML5. It is hosted entirely on Amazon S3.\n\nTry adding a new note, and then go to http://simplenote.minimumviable.com on your phone!");
 }
 
 function init() {
@@ -55,7 +62,10 @@ function init() {
   mviable.events({
     loginRequired: requireLogin
   });
-  mviable.sync(requireLogin);
+  if (mviable.getObj("notes") === undefined) {
+    addDefaultNote();
+  }
+  mviable.sync();
   loadNotes();
 }
 

@@ -3,4 +3,4 @@
 bin_dir=`dirname $0`
 cd $bin_dir/../public
   
-python -m SimpleHTTPServer
+python -m SimpleHTTPServer 8001

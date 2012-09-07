@@ -1,6 +1,10 @@
 describe("SimpleNote", function() {
+  var fakeSync;
+
   beforeEach(function() {
     localStorage.clear();
+    fakeSync = spyOn(mviable, 'sync');
+    setFixtures($(readFixtures("index.html")));
     init();
   });
 
@@ -27,16 +31,21 @@ describe("SimpleNote", function() {
 
     it('writes to local storage', function() {
       expect(localStorage.length).toEqual(2);
-      expect(sosimple.getObj("note-1")).toEqual({
+      expect(mviable.getObj("note-1")).toEqual({
         title: "My Note",
         body: "my note contents"
       });
-      expect(sosimple.getObj("notes")).toEqual([1]);
+      expect(mviable.getObj("notes")).toEqual([1]);
     });
 
     it('adds the note to the view', function() {
       expect($(".note-item")).toHaveAttr('note-id', 1);
     });
+  });
+
+  it('Adds the default note if the local storage is not initialized', function() {
+    expect(mviable.getObj("notes")).toEqual([1]);
+    expect(mviable.getObj("note-1").title).toEqual("What is SimpleNote?");
   });
 
   // Highlights the selected note

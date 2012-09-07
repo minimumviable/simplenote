@@ -5,6 +5,6 @@ beforeEach(function() {
   // for this, which you can use on OS X like so:
   //
   // open -a "Google Chrome" --args --allow-file-access-from-files
-  var appBody = $(readFixtures("index.html"));
-  setFixtures(appBody);
+  //var appBody = $(readFixtures("index.html"));
+  //setFixtures(appBody);
 });
